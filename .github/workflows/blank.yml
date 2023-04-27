@@ -36,7 +36,7 @@ jobs:
             nfs-common cachefilesd
           version: 1.0
           
-      - name: lib32ncurses-dev install
+      - name: dependency install
         run: sudo apt-get install lib32ncurses5-dev
         
       - name: Install repo
@@ -49,6 +49,7 @@ jobs:
         run: |
           sudo sh -c "echo RUN=yes >> /etc/default/cachefilesd"
           sudo systemctl restart cachefilesd
+          sudo apt-get install -y cachefilesd
           sudo systemctl status cachefilesd
       - name: mount lineage
         run: |
