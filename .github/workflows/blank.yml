@@ -55,6 +55,11 @@ jobs:
           sudo mount -t overlay -o lowerdir=/lineage_os,upperdir=/tmp/upperdir,workdir=/tmp/workdir none ~/android/lineage
           cd ~/android/lineage
           ls -lh
+      - name: debug
+        run: |
+          whoami
+          ls -lha ~/android/lineage/.repo
+          ls -lha ~/android/lineage/local_manifests
       # Runs a single command using the runners shell
       - name: start build
         run: |
