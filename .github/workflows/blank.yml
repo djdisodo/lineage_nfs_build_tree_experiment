@@ -44,13 +44,6 @@ jobs:
           mkdir -p ~/bin
           curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
           chmod a+x ~/bin/repo
-          
-      - name: start cachefilesd
-        run: |
-          sudo sh -c "echo RUN=yes >> /etc/default/cachefilesd"
-          sudo systemctl restart cachefilesd
-          sudo apt-get install -y cachefilesd
-          sudo systemctl status cachefilesd
       - name: mount lineage
         run: |
           mkdir /lineage_os
