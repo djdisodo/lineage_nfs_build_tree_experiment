@@ -62,6 +62,7 @@ jobs:
           export CCACHE_EXEC=/usr/bin/ccache
           export CCACHE_DIR=/mnt/ccache
           sudo mkdir /mnt/ccache
+          sudo chmod 777 /mnt/ccache
           ccache -M 15G
           ccache -o compression=true
           cd ~/android/lineage
