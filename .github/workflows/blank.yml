@@ -53,7 +53,7 @@ jobs:
           mkdir ~/android/lineage
           sudo mount -t nfs -o nfsvers=3,nolock -vvvv 1.239.69.43:/lineage_os /lineage_os
           sudo mount -t overlay -o lowerdir=/lineage_os,upperdir=/tmp/upperdir,workdir=/tmp/workdir none ~/android/lineage
-          cd lineage
+          cd ~/android/lineage
           ls -lh
       # Runs a single command using the runners shell
       - name: start build
