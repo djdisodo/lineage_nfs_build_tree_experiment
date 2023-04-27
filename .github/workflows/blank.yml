@@ -46,11 +46,11 @@ jobs:
           chmod a+x ~/bin/repo
       - name: mount lineage
         run: |
-          mkdir /lineage_os
-          mkdir /tmp/upperdir
-          mkdir /tmp/workdir
-          mkdir ~/android
-          mkdir ~/android/lineage
+          sudo mkdir /lineage_os
+          sudo mkdir /tmp/upperdir
+          sudo mkdir /tmp/workdir
+          sudo mkdir ~/android
+          sudo mkdir ~/android/lineage
           sudo mount -t nfs -o nfsvers=3,fsc -vvvv 1.239.69.43:/lineage_os /lineage_os
           sudo mount -t overlay -o lowerdir=/lineage_os,upperdir=/tmp/upperdir,workdir=/tmp/workdir none ~/android/lineage
           cd lineage
