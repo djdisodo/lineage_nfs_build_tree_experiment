@@ -47,11 +47,11 @@ jobs:
           
       - name: start cachefilesd
         run: |
-          systemctl start cachefilesd
-          systemctl status cachefilesd
+          sudo sh -c "echo RUN=yes >> /etc/default/cachefilesd"
+          sudo systemctl restart cachefilesd
+          sudo systemctl status cachefilesd
       - name: mount lineage
         run: |
-          sudo sh -c "echo RUN=yes >> /etc/default/cachefilesd"
           mkdir /lineage_os
           mkdir /tmp/upperdir
           mkdir /tmp/workdir
