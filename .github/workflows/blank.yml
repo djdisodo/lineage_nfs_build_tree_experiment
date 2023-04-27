@@ -53,7 +53,7 @@ jobs:
           mkdir ~/android
           mkdir ~/android/lineage
           sudo mount -t nfs -o nfsvers=3,nolock -vvvv 1.239.69.43:/lineage_os /lineage_os
-          sudo mount -t overlay -o lowerdir=/lineage_os2,upperdir=/tmp/upperdir,workdir=/tmp/workdir none /lineage_os2
+          sudo mount -t overlay -o lowerdir=/lineage_os,upperdir=/tmp/upperdir,workdir=/tmp/workdir none /lineage_os2
           sudo bindfs --map=runneradmin/runner:@runneradmin/@runner /lineage_os2 ~/android/lineage
           cd ~/android/lineage
           ls -lh
@@ -61,7 +61,7 @@ jobs:
         run: |
           whoami
           ls -lha ~/android/lineage/.repo
-          ls -lha ~/android/lineage/local_manifests
+          ls -lha ~/android/lineage/.repo/local_manifests
       # Runs a single command using the runners shell
       - name: start build
         run: |
