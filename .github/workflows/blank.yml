@@ -33,7 +33,7 @@ jobs:
             zlib1g-dev
             adb fastboot
             python-is-python3
-            nfs-common cachefilesd
+            nfs-common cachefilesd bindfs
           version: 1.0
           
       - name: dependency install
@@ -47,11 +47,13 @@ jobs:
       - name: mount lineage
         run: |
           sudo mkdir /lineage_os
+          sudo mkdir /lineage_os2
           sudo mkdir /tmp/upperdir
           sudo mkdir /tmp/workdir
           mkdir ~/android
           mkdir ~/android/lineage
-          sudo mount -t nfs -o nfsvers=3,nolock -vvvv 1.239.69.43:/lineage_os /lineage_os
+          sudo mount -t nfs -o nfsvers=3,nolock -vvvv 1.239.69.43:/lineage_os2 /lineage_os2
+          sudo bindfs --map=runneradmin/runner:@runneradmin/@runner /lineage_os2 /lineage_os
           sudo mount -t overlay -o lowerdir=/lineage_os,upperdir=/tmp/upperdir,workdir=/tmp/workdir none ~/android/lineage
           cd ~/android/lineage
           ls -lh
