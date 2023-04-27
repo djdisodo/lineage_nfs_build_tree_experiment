@@ -40,15 +40,15 @@ jobs:
         run: sudo apt-get install lib32ncurses5-dev
         
       - name: Install repo
-        run: mkdir -p ~/bin |
+        run: mkdir -p ~/bin >
           curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
           chmod a+x ~/bin/repo
           
       - name: start cachefilesd
-        run: systemctl start cachefilesd |
+        run: systemctl start cachefilesd >
           systemctl status cachefilesd
       - name: mount lineage
-        run: sudo sh -c "echo RUN=yes >> /etc/default/cachefilesd" |
+        run: sudo sh -c "echo RUN=yes >> /etc/default/cachefilesd" >
           mkdir /lineage_os
           mkdir /tmp/upperdir
           mkdir /tmp/workdir
@@ -60,7 +60,7 @@ jobs:
           ls -lh
       # Runs a single command using the runners shell
       - name: start build
-        run: |
+        run: >
           export USE_CCACHE=1
           export CCACHE_EXEC=/usr/bin/ccache
           export CCACHE_DIR=/mnt/ccache
